@@ -6,6 +6,7 @@
     src="https://playground.powerbi.com/sampleReportEmbed"
     frameborder="0"
     allowFullScreen="true"></iframe> -->
+    <h1>Reports</h1>
 </div>
 
 </template>
