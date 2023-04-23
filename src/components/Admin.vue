@@ -136,69 +136,82 @@
 </template>
 
 <script lang="ts">
+	import { ref } from 'vue';
+
 	export default {
 		name: 'Admin',
-		data() {
-			return {
-				isDisabled: true,
-				reportUrl:
-					'https://app.powerbi.com/groups/cd105cd2-1804-4f50-b979-1c49ff001171/reports/ed44234d-578f-449a-b606-8b7436720e3a/ReportSection',
-				groupId: 'cd105cd2-1804-4f50-b979-1c49ff001171',
-				reportId: 'ed44234d-578f-449a-b606-8b7436720e3a',
-				isDisabled2: true,
-				displayName: 'Demo Jurisdiction',
-				acronym: 'DEMO',
-				errorMessage: '',
-			};
-		},
+		setup() {
+			const isDisabled = ref(true);
+			const reportUrl = ref(
+				'https://app.powerbi.com/groups/cd105cd2-1804-4f50-b979-1c49ff001171/reports/ed44234d-578f-449a-b606-8b7436720e3a/ReportSection'
+			);
+			const groupId = ref('cd105cd2-1804-4f50-b979-1c49ff001171');
+			const reportId = ref('ed44234d-578f-449a-b606-8b7436720e3a');
+			const isDisabled2 = ref(true);
+			const displayName = ref('Demo Jurisdiction');
+			const acronym = ref('DEMO');
+			const errorMessage = ref('');
 
-		methods: {
-			editInfo() {
-				this.isDisabled = false;
-			},
-			saveReportInfo() {
-				const reportUrl = reportInfo.reportUrl || '';
+			function editInfo() {
+				isDisabled.value = false;
+			}
+
+			function saveReportInfo() {
 				const regex = /.+\/groups\/(.+)\/reports\/(.+)\/.*/;
 
-				if (regex.test(reportUrl)) {
-					reportInfo.groupId = RegExp.$1;
-					reportInfo.reportId = RegExp.$2;
-					saveReportInfo();
-					isReportEditMode.value = false;
+				if (regex.test(reportUrl.value)) {
+					groupId.value = RegExp.$1;
+					reportId.value = RegExp.$2;
+					isDisabled.value = true;
 				} else {
 					errorMessage.value = 'Please enter an embeddable Power BI report URL';
-					Object.assign(reportInfo, origReportInfo);
 				}
-			},
-			save() {
-				this.isDisabled = true;
+			}
+
+			function save() {
+				isDisabled.value = true;
 				// Save the updated values to storage
-			},
-			cancel() {
-				this.isDisabled = true;
-			},
-			editInfo2() {
-				this.isDisabled2 = false;
-			},
-			save2() {
-				this.isDisabled2 = true;
+			}
+
+			function cancel() {
+				isDisabled.value = true;
+			}
+
+			function editInfo2() {
+				isDisabled2.value = false;
+			}
+
+			function save2() {
+				isDisabled2.value = true;
 				// Save the updated values to storage
-			},
-			cancel2() {
-				this.isDisabled2 = true;
-			},
-			viewReport() {
+			}
+
+			function cancel2() {
+				isDisabled2.value = true;
+			}
+
+			function viewReport() {
 				this.$router.push('/reports');
-			},
+			}
+
+			return {
+				isDisabled,
+				reportUrl,
+				groupId,
+				reportId,
+				isDisabled2,
+				displayName,
+				acronym,
+				errorMessage,
+				editInfo,
+				saveReportInfo,
+				save,
+				cancel,
+				editInfo2,
+				save2,
+				cancel2,
+				viewReport,
+			};
 		},
 	};
 </script>
-
-<style scoped>
-	.button {
-		margin-left: 5px;
-		margin-right: 5px;
-		color: white;
-		cursor: pointer;
-	}
-</style>
