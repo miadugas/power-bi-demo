@@ -137,6 +137,7 @@
 
 <script lang="ts">
 	import { ref } from 'vue';
+	import { useRouter } from 'vue-router';
 
 	export default {
 		name: 'Admin',
@@ -191,7 +192,8 @@
 			}
 
 			function viewReport() {
-				this.$router.push('/reports');
+				const router = useRouter();
+				router.push('/reports');
 			}
 
 			return {
