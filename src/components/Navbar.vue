@@ -136,6 +136,17 @@
 	} from '@headlessui/vue';
 	import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline';
 
+  interface User {
+  name: string;
+  email: string;
+}
+
+interface NavItem {
+  name: string;
+  href: string;
+  current: boolean;
+}
+
 	const user = {
 		name: 'Jane Doe',
 		email: 'jane.doe@example.com',
@@ -146,7 +157,7 @@
 		{ name: 'Reports', href: '/reports', current: false },
 	];
 
-  const userNavigation = [
+  const userNavigation: NavItem[] = [
   // Add user navigation items if needed
 ]
 
