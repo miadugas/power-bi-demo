@@ -136,11 +136,6 @@
 	} from '@headlessui/vue';
 	import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline';
 
-  interface User {
-  name: string;
-  email: string;
-}
-
 interface NavItem {
   name: string;
   href: string;
