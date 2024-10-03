@@ -148,8 +148,8 @@ interface NavItem {
 	};
 	const navigation = [
 		{ name: 'Home', href: '/', current: false },
-		{ name: 'Embedded Reports', href: '/admin', current: false },
-		{ name: 'iframe Reports', href: '/reports', current: false },
+		{ name: 'Admin', href: '/admin', current: false },
+		{ name: 'Reports', href: '/reports', current: false },
 	];
 
   const userNavigation: NavItem[] = [
