@@ -7,8 +7,8 @@
 						<div class="flex-shrink-0 pt-6">
 							<img
 								class="h-8 w-8"
-								src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-								alt="Your Company" />
+								src="../assets/mia-abt-me.png"
+								alt="Mia Dugas Logo" />
 						</div>
 						<div class="hidden md:block">
 							<div class="ml-10 flex items-baseline space-x-4 pt-8">
@@ -148,8 +148,8 @@ interface NavItem {
 	};
 	const navigation = [
 		{ name: 'Home', href: '/', current: false },
-		{ name: 'Admin', href: '/admin', current: false },
-		{ name: 'Reports', href: '/reports', current: false },
+		{ name: 'Embedded Reports', href: '/admin', current: false },
+		{ name: 'iframe Reports', href: '/reports', current: false },
 	];
 
   const userNavigation: NavItem[] = [
